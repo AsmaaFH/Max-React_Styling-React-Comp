@@ -23,6 +23,7 @@ const FormControl = styled.div`
     font: inherit;
     line-height: 1.5rem;
     padding: 0 0.25rem;
+    margin-bottom: 0.5rem;
   }
 
   & input:focus {
