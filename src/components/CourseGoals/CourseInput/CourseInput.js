@@ -1,38 +1,38 @@
 import React, { useState } from 'react';
 
 import Button from '../../UI/Button/Button';
-import './CourseInput.css';
+import styles from './CourseInput.module.css';
 
-import styled from 'styled-components';
+// import styled from 'styled-components';
 
-const FormControl = styled.div`
-  margin: 0.5rem 0;
+// const FormControl = styled.div`
+//   margin: 0.5rem 0;
 
-  & label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 0.5rem;
-    color: ${(props) => (props.inValid ? 'red' : 'black')};
-  }
+//   & label {
+//     font-weight: bold;
+//     display: block;
+//     margin-bottom: 0.5rem;
+//     color: ${(props) => (props.inValid ? 'red' : 'black')};
+//   }
 
-  & input {
-    display: block;
-    width: 100%;
-    border: 1px solid ${(props) => (props.inValid ? 'red' : '#ccc')};
-    backgroung: ${(props) => (props.inValid ? '#ffd7d7' : 'transparent')}
-    font: inherit;
-    line-height: 1.5rem;
-    padding: 0 0.25rem;
-    margin-bottom: 0.5rem;
-  }
+//   & input {
+//     display: block;
+//     width: 100%;
+//     border: 1px solid ${(props) => (props.inValid ? 'red' : '#ccc')};
+//     backgroung: ${(props) => (props.inValid ? '#ffd7d7' : 'transparent')}
+//     font: inherit;
+//     line-height: 1.5rem;
+//     padding: 0 0.25rem;
+//     margin-bottom: 0.5rem;
+//   }
 
-  & input:focus {
-    outline: none;
-    background: #fad0ec;
-    border-color: #8b005d;
-  }
+//   & input:focus {
+//     outline: none;
+//     background: #fad0ec;
+//     border-color: #8b005d;
+//   }
 
-`;
+// `;
 const CourseInput = (props) => {
   const [enteredValue, setEnteredValue] = useState('');
 
@@ -56,20 +56,11 @@ const CourseInput = (props) => {
 
   return (
     <form onSubmit={formSubmitHandler}>
-      {/* ***Using ClassName***  */}
-      {/* <FormControl className={!isValid && 'invalid'}>
+      <div className={`${styles['form-control']} ${!isValid && styles.invalid}`}>
         <label>Course Goal</label>
         <input type="text" onChange={goalInputChangeHandler} />
-        <Button type="submit">Add Goal</Button>
-      </FormControl> */}
-
-      {/* ***Using Props***  */}
-
-      <FormControl inValid={!isValid}>
-        <label>Course Goal</label>
-        <input type="text" onChange={goalInputChangeHandler} />
-        <Button type="submit">Add Goal</Button>
-      </FormControl>
+      </div>
+      <Button type="submit">Add Goal</Button>
     </form>
   );
 };
